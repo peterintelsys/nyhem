@@ -26,7 +26,7 @@ Välkommen {{ auth()->user()->name }}
 <a href="">Inventarier</a>
 </div>
 <div class="module-index background-three">
-<a href="">Administration</a>
+<a href="/admin">Administration</a>
 </div>
 
 </div>
