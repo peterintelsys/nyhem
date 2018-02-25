@@ -10,6 +10,7 @@
       <div id="myDropdown" class="dropdown-content">
 
         @if (Auth::check())
+        <a href="{{ route('home') }}">Hem</a>
         <a href="#">Mitt konto</a>
         <a href="{{route('logout')}}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">Logga ut...</a>
