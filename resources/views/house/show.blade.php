@@ -99,6 +99,8 @@
       <label for="exampleEmailInput">Kontaktinfo</label>
       <textarea class="u-full-width" type="text" placeholder="Ange kontaktperson för gatan" name="contact">{{ $house->contact }}</textarea>
 
+      
+      <label for="exampleEmailInput">Ange ansvarsområde</label>
       <select class="u-full-width" id="exampleRecipientInput" name="area">
       <option value="@isset($house->area_id){{ $house->area_id }}@endisset @empty($house->area_id)0 @endempty">@isset($house->area->name){{ $house->area->name }}@endisset @empty($house->area->name) Välj område @endempty</option>
       @foreach ($areas as $area)

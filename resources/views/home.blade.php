@@ -13,9 +13,7 @@ Välkommen {{ auth()->user()->name }}
 
 
 <div class="column three">
-<div class="module-index background-two">
-<a href="{{ route('streets.index') }}">Gator</a>
-</div>
+
 <div class="module-index background-one">
 <a href="{{ route('houses.index') }}">Fastigheter</a>
 </div>

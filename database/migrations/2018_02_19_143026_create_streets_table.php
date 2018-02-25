@@ -17,7 +17,7 @@ class CreateStreetsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('contact');
+            $table->string('contact')->nullable();
 
         });
     }

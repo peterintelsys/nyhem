@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Street;
 
 class AdminController extends Controller
 {
@@ -21,7 +22,9 @@ class AdminController extends Controller
 
     	$users = User::all();
 
-    	return view('admin.index', compact('users'));
+        $streets = Street::all();
+
+    	return view('admin.index', compact('users', 'streets'));
     }
 
     public function show($id)
@@ -65,4 +68,31 @@ class AdminController extends Controller
 
     	return redirect()->action('AdminController@index');
     }
+
+    public function streets()
+    {
+
+        $checkstreets = Street::all();
+
+        if (count($checkstreets) === 0){
+
+        $streetsname = ['Ålagränd', 'Abborrgränd', 'Mörtgränd'];
+
+        foreach ($streetsname as $streetname){
+
+            $street = New Street;
+
+            $street->name = $streetname;
+            $street->contact = 'Ange namn senare';
+            $street->save();
+
+        }
+
+
+        }
+
+        return redirect()->action('AdminController@index');
+    }
+
+
 }

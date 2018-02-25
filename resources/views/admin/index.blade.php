@@ -40,6 +40,31 @@
 
 <div>
   
+@if (count($streets) === 0)
+
+<a class="button" href="/admin/streets">Skapa gator</a>
+
+@else
+
+<div class="panel">
+
+<div class="panel-header">Följande gator är skapade.</div>
+
+<div class="panel-content">
+
+@foreach ($streets as $street)
+
+<div>{{ $street->name }}</div>
+
+@endforeach
+
+
+</div>
+
+</div>
+
+@endif
+
 
 </div>
 

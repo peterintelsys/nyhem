@@ -17,8 +17,8 @@ class CreateStreetPhotosTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('street_id');
-            $table->string('info');
-            $table->string('prio');
+            $table->string('info')->nullable();
+            $table->string('prio')->nullable();
         });
     }
 

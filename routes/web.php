@@ -25,6 +25,7 @@ Route::resource('streetphotos', 'StreetPhotoController');
 Route::resource('areas', 'AreaController');
 Route::post('areaphotos', 'AreaPhotoController@store');
 
+Route::get('admin/streets', 'AdminController@streets');
 Route::get('admin', 'AdminController@index');
 Route::post('admin', 'AdminController@store');
 Route::get('admin/{id}', 'AdminController@show');
