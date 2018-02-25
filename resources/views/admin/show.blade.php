@@ -7,10 +7,11 @@
 <br>
 <ul class="breadcrumb">
 <li><a href="{{ route('home') }}">Hem</a></li>
-<li>Administration</li>
+<li><a href="{{ route('admin') }}">Administration</a></li>
+<li>{{ $user->name }}</li>
 </ul>
 
-<h4>Administration</h4>
+<h4>Användare</h4>
 
 <a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="createuser">Lägg till användare...</a>
 
@@ -26,10 +27,10 @@
 
   <div class="panel-content">
     
-    @foreach ($users as $user)
-    <div class="panel-list"><a href="{{ action('AdminController@show', ['user' => $user->id]) }}">{{ $user->email}} {{$user->name}}</a></div>
+    
+    <div class="panel-list"><a href="">{{ $user->email}} {{$user->name}}</a></div>
 
-    @endforeach
+   
     <br>
 
   </div>
@@ -60,7 +61,7 @@
 
 <div class="panel-content">
 
-<form method="POST" action="/admin">
+<form method="POST" action="">
   {{ csrf_field() }}
 
       

@@ -24,6 +24,14 @@ class AdminController extends Controller
     	return view('admin.index', compact('users'));
     }
 
+    public function show($id)
+    {
+
+    	$user = User::find($id);
+
+    	return view('admin.show', compact('user'));
+    }
+
     public function store(Request $request)
     {
 

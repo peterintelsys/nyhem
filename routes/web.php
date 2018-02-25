@@ -27,4 +27,5 @@ Route::post('areaphotos', 'AreaPhotoController@store');
 
 Route::get('admin', 'AdminController@index');
 Route::post('admin', 'AdminController@store');
+Route::get('admin/{id}', 'AdminController@show');
 
