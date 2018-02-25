@@ -7,7 +7,7 @@
 <br>
 <ul class="breadcrumb">
 <li><a href="{{ route('home') }}">Hem</a></li>
-<li><a href="{{ route('admin') }}">Administration</a></li>
+<li><a href="/admin">Administration</a></li>
 <li>{{ $user->name }}</li>
 </ul>
 
@@ -22,7 +22,7 @@
   <div class="panel">
 
   <div class="panel-header">
-  Användare
+  {{ $user->name }}
   </div>
 
   <div class="panel-content">
