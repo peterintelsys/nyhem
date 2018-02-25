@@ -13,7 +13,6 @@
 
 <h4>Användare</h4>
 
-<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="createuser">Lägg till användare...</a>
 
 <div class="column two">
 
@@ -32,7 +31,7 @@
 
    
     <br>
-
+<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="deleteuser">Radera post</a>
   </div>
 
   </div>
@@ -47,7 +46,7 @@
 
 </div>
 
-<div id="createuser" class="modal">
+<div id="deleteuser" class="modal">
 
 <div class="modal-panel">
 
@@ -55,28 +54,22 @@
 
 <div style="font-size: 24px; margin: 12px 0;">Lägg till användare</div>
 
-<div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="createuser">Stäng</a></div>
+<div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="deleteuser">Stäng</a></div>
 
 </div>
 
 <div class="panel-content">
 
-<form method="POST" action="">
-  {{ csrf_field() }}
+<h5>Vill du radera användare {{ $user->name }}</h5>
+
+<form method="POST" action="/admin/{{ $user->id }}">
+  {{ csrf_field() }}{{ method_field('DELETE') }}
 
       
-      <label for="exampleEmailInput">Namn</label>
-      <input class="u-full-width" type="text" placeholder="Ange namn" name="name">
-      <label for="exampleEmailInput">Email</label>
-      <input class="u-full-width" type="text" placeholder="Ange email" name="email">
-      <label for="exampleEmailInput">Lösenord</label>
-      <input class="u-full-width" type="password" placeholder="*****" name="password">
-      <label for="exampleEmailInput">Repetera lösenord</label>
-      <input class="u-full-width" type="password" placeholder="*****" name="password_confirmation">
+      <input class="u-full-width" type="hidden" placeholder="Ange namn" name="id" value="{{ $user->id }}">
       
     
-    
-  <input class="button-primary" type="submit" value="Spara">
+  <input class="button-primary" type="submit" value="Radera">
 </form>
 
 </div>

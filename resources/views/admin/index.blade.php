@@ -27,7 +27,7 @@
   <div class="panel-content">
     
     @foreach ($users as $user)
-    <div class="panel-list"><a href="admin/1">{{ $user->email}} {{$user->name}}</a></div>
+    <div class="panel-list"><a href="{{ action('AdminController@show', ['id' => $user->id]) }}">{{ $user->email}} {{$user->name}}</a></div>
 
     @endforeach
     <br>
