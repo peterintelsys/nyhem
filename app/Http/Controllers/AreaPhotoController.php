@@ -25,6 +25,6 @@ class AreaPhotoController extends Controller
 
         Storage::disk('local')->put('public/photos', $image);
 
-        return redirect()->route('areas.index');
+        return redirect()->route('areas.show', ['id' => $photo->area_id]);
     }
 }
