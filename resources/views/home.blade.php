@@ -21,9 +21,6 @@ Välkommen {{ auth()->user()->name }}
 <a href="{{ route('areas.index') }}">Skötselområde</a>
 </div>
 <div class="module-index background-three">
-<a href="">Inventarier</a>
-</div>
-<div class="module-index background-three">
 <a href="/admin">Administration</a>
 </div>
 
