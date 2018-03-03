@@ -49,6 +49,13 @@
                 font-size: 84px;
             }
 
+            .sub-title{
+                background-color: grey;
+                padding:12px 40px;
+                color:white;
+                text-decoration: none;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -66,20 +73,26 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        
-                    @endauth
-                </div>
-            @endif
+            
 
             <div class="content">
                 <div class="title m-b-md">
                     Nyhem
+                </div>
+
+                <div>
+                    @if (Route::has('login'))
+                
+                    @auth
+                        <a class="sub-title" href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a class="sub-title" href="{{ route('login') }}">Logga in...</a>
+                        
+                    @endauth
+                
+            @endif
+
+                    
                 </div>
 
                 
