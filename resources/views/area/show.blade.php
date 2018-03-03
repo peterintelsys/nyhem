@@ -53,10 +53,10 @@ Foto
 
 <div class="panel-content">
 
-<div class="column three" style="margin-top:16px;">
+<div class="column two" style="margin-top:16px;">
 @foreach($area->photos as $photo)
 <div>
-<img src="{{ asset("storage/photos/$photo->info") }}" alt="Mountain View" width="100%" height="150">
+<img src="{{ asset("storage/photos/$photo->info") }}" alt="Mountain View" width="100%" height="200">
 </div>
 @endforeach
 </div>
