@@ -57,7 +57,7 @@
 
 <div class="panel-content" style="margin:12px 0;">
 @foreach ($mortgrand as $mort)
-<div><a href="/houses/{{$mort->id}}" style="text-decoration: none;">{{ $mort->street->name }} {{ $mort->number }}</a></div>
+<div class="panel-list"><a href="/houses/{{$mort->id}}" style="text-decoration: none;">{{ $mort->street->name }} {{ $mort->number }}</a></div>
 @endforeach
 </div>
 
