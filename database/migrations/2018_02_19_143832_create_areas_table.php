@@ -18,7 +18,10 @@ class CreateAreasTable extends Migration
             $table->timestamps();
             $table->integer('street_id');
             $table->string('name');
+            $table->string('location')->nullable();
+            $table->integer('status')->nullable();
             $table->text('info')->nullable();
+            $table->text('problems')->nullable();
         });
     }
 

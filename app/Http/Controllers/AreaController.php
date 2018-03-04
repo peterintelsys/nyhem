@@ -58,6 +58,9 @@ class AreaController extends Controller
         'street' => 'required|max:50',
         'name' => 'required|max:50',
         'info' => 'max:255',
+        'location' => 'max:255',
+        'status' => 'max:255',
+        'problems' => 'max:255',
         ]);
 
         $area = New Area;
@@ -66,6 +69,9 @@ class AreaController extends Controller
         $area->name = $request->name;
         $area->info = $request->info;
         $area->street_id = $request->street;
+        $area->location = $request->location;
+        $area->status = $request->status;
+        $area->problems = $request->problems;
 
         $area->save();
 
@@ -113,6 +119,9 @@ class AreaController extends Controller
         'street' => 'required|max:50',
         'name' => 'required|max:50',
         'info' => 'max:50',
+        'location' => 'max:255',
+        'status' => 'max:255',
+        'problems' => 'max:255',
         ]);
 
         $house = Area::find($id);
@@ -121,6 +130,9 @@ class AreaController extends Controller
         $house->name = $request->name;
         $house->info = $request->info;
         $house->street_id = $request->street;
+        $house->location = $request->location;
+        $house->status = $request->status;
+        $house->problems = $request->problems;
 
         $house->save();
 

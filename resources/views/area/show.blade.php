@@ -19,14 +19,20 @@
 
 <div class="panel-header" style="font-size: 24px;">
 
-{{ $area->name }}
+<div>{{ $area->name }}</div>
+
+<div style="width:40px;height:20px;background-color: @if($area->status === 1)green @elseif($area->status === 2) yellow
+@elseif($area->status === 3)red @endif;"></div>
 
 </div>
 
 <div class="panel-content">
 <br>
-<strong>Info</strong><br>
+<strong>Info (arbetsbeskrivning)</strong><br>
  {{ $area->info }}<br><br>
+
+ <strong>Svårigheter</strong><br>
+ {{ $area->problems }}<br><br>
 
 <strong>Ansvariga för området</strong><br>
 @foreach ($area->houses as $house)
@@ -72,21 +78,32 @@ Foto
 
 </div>
 
-
-
 <div>
 
 <div class="panel">
 	
 
+@isset($area->location)
+<iframe
+  width="100%"
+  height="450"
+  frameborder="0" style="border:0; padding:4px;"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAIn8DrJAIemaZsKWlp5wbggn5aXM4e9B4
+    &q={{ $area->location }}&zoom=18&maptype=satellite" allowfullscreen>
+</iframe>
+@endisset
+
+@empty($area->location)
 
 <iframe
   width="100%"
   height="450"
   frameborder="0" style="border:0; padding:4px;"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAIn8DrJAIemaZsKWlp5wbggn5aXM4e9B4
-    &q={{ $area->street->name }},Ängelholm+Sweden&zoom=17&maptype=satellite" allowfullscreen>
+    &q={{ $area->street->name }},Ängelholm+Sweden&zoom=18&maptype=satellite" allowfullscreen>
 </iframe>
+
+@endempty
 
 
 
@@ -122,8 +139,24 @@ Foto
       </select>
       <label for="exampleEmailInput">Namn</label>
       <input class="u-full-width" type="text" placeholder="Ange fastighetsnummer" name="name" value="{{ $area->name }}">
-      <label for="exampleEmailInput">Info</label>
-      <textarea class="u-full-width" type="text" placeholder="Ange kontaktperson för gatan" name="info">{{ $area->info }}</textarea>
+      <label for="exampleEmailInput">Plats ( LAT/LONG )</label>
+      <input class="u-full-width" type="text" placeholder="Ange longitud/latitud ex. 56.242618, 12.883010" name="location" id="exampleEmailInput" value="{{ $area->location }}">
+      <label for="exampleEmailInput">Info ( arbetsbeskrivning )</label>
+      <textarea class="u-full-width" type="text" placeholder="Beskriv skötseluppgifter" name="info">{{ $area->info }}</textarea>
+      <label for="exampleEmailInput">Svårigheter</label>
+      <textarea class="u-full-width" type="text" placeholder="Beskriv svårigheter med området" name="problems">{{ $area->problems }}</textarea>
+
+      <label for="exampleRecipientInput">Hur fungerar skötseln?</label>
+      <select class="u-full-width" id="exampleRecipientInput" name="status">
+      <option value="{{ $area->status }}">@if ($area->status === 1) Mycket bra @elseif ($area->status === 2) Problem finns
+      @elseif ($area->status === 3) Dåligt @endif</option>
+      
+      <option value="1">Mycket bra</option>
+      <option value="2">Problem finns</option>
+      <option value="3">Dåligt</option>
+    
+      </select>
+      <br>
     
     
   <input class="button-primary" type="submit" value="Spara">
