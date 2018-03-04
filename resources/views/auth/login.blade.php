@@ -12,12 +12,12 @@
 
 
       <label for="exampleEmailInput">Email</label>
-      <input class="u-full-width" type="email" placeholder="test@mailbox.com" name="email" id="exampleEmailInput">
+      <input class="u-full-width" type="email" placeholder="Ange email" name="email" id="exampleEmailInput">
       <label for="exampleEmailInput">Lösenord</label>
       <input class="u-full-width" type="password" placeholder="*****" name="password" id="exampleEmailInput">
     
     
-  <input class="button-primary" type="submit" value="Submit">
+  <input class="button-primary" type="submit" value="Logga in...">
 </form>
 
 </div>

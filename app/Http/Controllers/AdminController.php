@@ -62,9 +62,15 @@ class AdminController extends Controller
     public function destroy($id)
     {
 
-    	$user = User::find($id);
+    	$users = User::all();
+
+        if (count($users) >= 2) {
+
+        $user = User::find($id);
 
     	$user->delete();
+
+        }
 
     	return redirect()->action('AdminController@index');
     }

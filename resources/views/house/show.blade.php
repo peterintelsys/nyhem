@@ -36,7 +36,7 @@
  {{ $house->area->name }}<br><br>
  @endisset
 
-
+<br>
 <a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="edithouse">Ändra...</a>
 </div>
 

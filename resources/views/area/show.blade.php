@@ -141,7 +141,7 @@ Foto
 
 <div class="panel-header">
 
-<div style="font-size: 24px; margin: 12px 0;">Ändra posten</div>
+<div style="font-size: 24px; margin: 12px 0;">Lägg till ett foto</div>
 
 <div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="createphotos">Stäng</a></div>
 
@@ -152,8 +152,10 @@ Foto
 <form method="POST" action="/areaphotos" enctype="multipart/form-data">
   {{ csrf_field() }}
 
+      <br>
       <label for="input">Välj foto...</label>
       <input class="inputfile" type="file" name="file" id="input">
+      <br>
       <input class="u-full-width" type="hidden" placeholder="Ange ett gatunamn" name="id" value="{{ $area->id }}">
       
     
