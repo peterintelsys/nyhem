@@ -142,9 +142,9 @@ Foto
       <label for="exampleEmailInput">Plats ( LAT/LONG )</label>
       <input class="u-full-width" type="text" placeholder="Ange longitud/latitud ex. 56.242618, 12.883010" name="location" id="exampleEmailInput" value="{{ $area->location }}">
       <label for="exampleEmailInput">Info ( arbetsbeskrivning )</label>
-      <textarea class="u-full-width" type="text" placeholder="Beskriv skötseluppgifter" name="info">{{ $area->info }}</textarea>
+      <textarea class="u-full-width" placeholder="Beskriv skötseluppgifter" name="info">{{ $area->info }}</textarea>
       <label for="exampleEmailInput">Svårigheter</label>
-      <textarea class="u-full-width" type="text" placeholder="Beskriv svårigheter med området" name="problems">{{ $area->problems }}</textarea>
+      <textarea class="u-full-width" placeholder="Beskriv svårigheter med området" name="problems">{{ $area->problems }}</textarea>
 
       <label for="exampleRecipientInput">Hur fungerar skötseln?</label>
       <select class="u-full-width" id="exampleRecipientInput" name="status">

@@ -121,7 +121,7 @@ class AreaController extends Controller
         'info' => 'max:50',
         'location' => 'max:255',
         'status' => 'max:255',
-        'problems' => 'max:255',
+        'problems' => 'max:655',
         ]);
 
         $house = Area::find($id);
