@@ -43,8 +43,6 @@
 @if (count($streets) === 0)
 
 <a class="button" href="/admin/streets">Skapa gator</a>
-<a class="button" href="/admin/streets">Skapa gator</a>
-
 
 @endif
 
