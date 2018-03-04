@@ -15,6 +15,18 @@
 
 <div><a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="createhouse">Lägg till fastighet</a></div><br>
 
+<div class="panel">
+<div class="panel-header">
+Statistik
+</div>
+
+<div class="panel-content">
+<br>
+<div>Totalt antal fastigheter: {{ count($alagrand) + count($abborrgrand) + count($mortgrand) }}</div>
+<div>Fastigheter utan ansvarsområde: {{ count($noarea) }}</div>
+<br>
+</div>
+</div>
 
 <div class="column two">
 
@@ -22,7 +34,7 @@
 <div class="panel">
 
 <div class="panel-header" style="font-size: 18px;">
-<div>Ålagränd</div>
+<div>Ålagränd</div><div>Antal: {{ count($alagrand) }} villor</div>
 </div>
 
 
@@ -37,7 +49,7 @@
 <div class="panel">
 
 <div class="panel-header" style="font-size: 18px;">
-<div>Abborrgränd</div>
+<div>Abborrgränd</div><div>Antal: {{ count($abborrgrand) }} villor</div>
 </div>
 
 <div class="panel-content" style="margin:12px 0 24px 0;">
@@ -52,7 +64,7 @@
 
 <div class="panel">
 <div class="panel-header" style="font-size: 18px;">
-<div>Mörtgränd</div>
+<div>Mörtgränd</div><div>Antal: {{ count($mortgrand) }} villor</div>
 </div>
 
 <div class="panel-content" style="margin:12px 0;">

@@ -29,9 +29,9 @@ class HouseController extends Controller
 
         $mortgrand = House::where('street_id', 3)->orderBy('number', 'asc')->get();
 
-        
+        $noarea = House::where('area_id', Null)->get();
 
-        return view('house.index', compact('alagrand', 'abborrgrand', 'mortgrand', 'streets'));
+        return view('house.index', compact('alagrand', 'abborrgrand', 'mortgrand', 'streets', 'noarea'));
     }
 
     /**

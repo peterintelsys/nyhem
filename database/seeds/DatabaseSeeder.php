@@ -57,8 +57,8 @@ class DatabaseSeeder extends Seeder
         $houses = House::all();
         if(count($houses) === 0){
 
-        $alahouses = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,35,
-                        37,39,41,43,45,47,49,51];
+        $alahouses = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,34,
+                        36,38];
 
         foreach($alahouses as $alahouse){
 
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
         $abborrhouses = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,35,
                         37,39,41,43,45,47,49,51];
 
-        foreach($abborrhouses as $abborhouse){
+        foreach($abborrhouses as $abborhouse){  
 
             $abb = New House;
             $abb->number = $abborhouse;
