@@ -26,7 +26,7 @@
             }
 
             .flex-center {
-                align-items: center;
+                margin-top:120px;
                 display: flex;
                 justify-content: center;
             }
@@ -54,6 +54,7 @@
                 padding:12px 40px;
                 color:white;
                 text-decoration: none;
+                font-weight: 600;
             }
 
             .links > a {
