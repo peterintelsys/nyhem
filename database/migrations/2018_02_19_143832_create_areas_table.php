@@ -20,8 +20,8 @@ class CreateAreasTable extends Migration
             $table->string('name');
             $table->string('location')->nullable();
             $table->integer('status')->nullable();
-            $table->longText('info')->nullable();
-            $table->longText('problems')->nullable();
+            $table->string('info')->nullable();
+            $table->string('problems')->nullable();
         });
     }
 

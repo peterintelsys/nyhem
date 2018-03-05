@@ -18,7 +18,7 @@ class CreateHousesTable extends Migration
             $table->timestamps();
             $table->integer('number');
             $table->string('name')->nullable();
-            $table->text('contact')->nullable();
+            $table->string('contact')->nullable();
             $table->integer('street_id')->nullable();
             $table->integer('area_id')->nullable();
         });
