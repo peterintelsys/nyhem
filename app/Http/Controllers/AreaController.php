@@ -57,10 +57,10 @@ class AreaController extends Controller
         $validatedData = $request->validate([
         'street' => 'required|max:50',
         'name' => 'required|max:50',
-        'info' => 'max:255',
         'location' => 'max:255',
         'status' => 'max:255',
-        'problems' => 'max:255',
+        'info' => 'max:655',
+        'problems' => 'max:655',
         ]);
 
         $area = New Area;
@@ -118,7 +118,7 @@ class AreaController extends Controller
         $validatedData = $request->validate([
         'street' => 'required|max:50',
         'name' => 'required|max:50',
-        'info' => 'max:50',
+        'info' => 'max:655',
         'location' => 'max:255',
         'status' => 'max:255',
         'problems' => 'max:655',

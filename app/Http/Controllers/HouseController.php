@@ -59,7 +59,7 @@ class HouseController extends Controller
         'street' => 'required|max:50',
         'number' => 'required|max:50',
         'name' => 'max:50',
-        'contact' => 'max:50',
+        
         ]);
 
         $house = New House;
