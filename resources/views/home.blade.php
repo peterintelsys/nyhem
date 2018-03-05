@@ -8,8 +8,7 @@
 </ul>
 
 <br>
-Välkommen {{ auth()->user()->name }}
-<br><br>
+<div style="padding-left:12px;"><h5>Välkommen {{ auth()->user()->name }}</h5></div><br>
 
 
 <div class="column three">

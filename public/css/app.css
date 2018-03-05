@@ -931,7 +931,10 @@ form {
 }
 
 .module-index a {
-  padding: 25px 70px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  width: 100%;
   display: block;
   background-color: #425955;
   text-decoration: none;
@@ -950,7 +953,9 @@ form {
 
 @media (min-width: 550px) {
   .module-index a {
-    padding: 50px 70px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 0;
     text-align: center;
   }
 }
