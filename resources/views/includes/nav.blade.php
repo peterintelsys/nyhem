@@ -1,5 +1,5 @@
 <nav class="column two-small flow-navbar">
-      <div class="item-center" style="font-size: 28px;">
+      <div class="item-center" style="font-size: 28px; font-weight: 100; letter-spacing: 1px; font-family: 'Raleway';">
       Nyhem
       </div>
 
