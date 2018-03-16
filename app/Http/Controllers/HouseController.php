@@ -142,6 +142,10 @@ class HouseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $house = House::findOrFail($id);
+
+        $house->delete();
+
+        return redirect()->action('HouseController@index');
     }
 }

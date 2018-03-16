@@ -43,6 +43,7 @@
 <br><br>
 
 <a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="editarea">Ändra...</a>
+<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="deletearea">Radera post...</a>
 </div>
 
 
@@ -194,6 +195,32 @@ Foto
     
     
   <input class="button-primary" type="submit" value="Spara">
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="deletearea" class="modal">
+
+<div class="modal-panel">
+
+<div class="panel-header">
+
+<div style="font-size: 24px; margin: 12px 0;">Vill du radera posten</div>
+
+<div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="deletearea">Ångra</a></div>
+
+</div>
+
+<div class="panel-content">
+<br>
+<form method="POST" action="{{ route('areas.destroy', ['id' => $area->id]) }}">
+  {{ csrf_field() }}{{ method_field('DELETE') }}
+
+  <input class="button-primary" style="background-color: red; border-color:red;" type="submit" value="Radera posten">
 </form>
 
 </div>

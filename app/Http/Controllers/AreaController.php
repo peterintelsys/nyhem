@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Area;
 use App\Street;
 use App\House;
+use App\AreaPhoto;
 
 class AreaController extends Controller
 {
@@ -147,6 +148,12 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $area = Area::findOrFail($id);
+
+        $photos = AreaPhoto::where('area_id', $id)->delete();
+
+        $area->delete();
+
+        return redirect()->route('areas.index');
     }
 }
