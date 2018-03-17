@@ -44,7 +44,7 @@ Statistik
 
 <div class="panel-content" style="margin:12px 0;">
 @foreach ($alagrand as $ala)
-<div class="panel-list"><a href="/areas/{{$ala->id}}">{{ $ala->name }} ({{ $ala->info }})</a></div>
+<div class="panel-list"><a href="/areas/{{$ala->id}}" style="text-decoration: none;">{{ $ala->name }}</a></div>
 @endforeach
 </div>
 
