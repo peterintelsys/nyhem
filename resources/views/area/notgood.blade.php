@@ -22,7 +22,8 @@
 
 <div class="panel-content" style="margin:12px 0;">
 @foreach ($areas as $area)
-<div class="panel-list"><a href="/areas/{{$area->id}}">{{ $area->name }}</a></div>
+<div><a href="/areas/{{$area->id}}">{{ $area->name }} ({{ $area->street->name }})</a> {{ $area->problems }}</div>
+
 @endforeach
 
 

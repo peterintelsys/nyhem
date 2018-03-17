@@ -73,7 +73,7 @@ Statistik
 
 <div class="panel-content" style="margin:12px 0;">
 @foreach ($mortgrand as $mort)
-<div><a href="/areas/{{$mort->id}}" style="text-decoration: none;">{{ $mort->name }}</a></div>
+<div class="panel-list"><a href="/areas/{{$mort->id}}" style="text-decoration: none;">{{ $mort->name }}</a></div>
 @endforeach
 </div>
 
