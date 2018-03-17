@@ -21,4 +21,9 @@ class Area extends Model
     {
         return $this->hasMany('App\AreaPhoto');
     }
+
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
 }

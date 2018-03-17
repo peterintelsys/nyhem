@@ -16,4 +16,9 @@ class House extends Model
     {
         return $this->belongsTo('App\Area');
     }
+
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
 }

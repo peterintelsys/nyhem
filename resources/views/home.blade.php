@@ -20,6 +20,9 @@
 <a href="{{ route('areas.index') }}">Skötselområde</a>
 </div>
 <div class="module-index background-three">
+<a href="{{ route('events.index') }}">Att göra</a>
+</div>
+<div class="module-index background-three">
 <a href="/admin">Administration</a>
 </div>
 
