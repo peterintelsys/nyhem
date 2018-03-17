@@ -19,7 +19,7 @@
 
 <div class="panel-header" style="font-size: 24px;">
 
-{{ $house->street->name }} {{ $house->number }}
+{{ $house->street->name }} @if($house->type == 'Garage') G @endif{{ $house->number }}
 
 </div>
 

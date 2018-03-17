@@ -32,9 +32,32 @@ class AreaController extends Controller
 
         $mortgrand = Area::where('street_id', 3)->orderBy('name', 'asc')->get();
 
+        $areas = Area::all();
+
         
 
-        return view('area.index', compact('alagrand', 'abborrgrand', 'mortgrand', 'streets'));
+        return view('area.index', compact('alagrand', 'abborrgrand', 'mortgrand', 'streets', 'areas'));
+    }
+
+    public function statusgood()
+    {
+        $areas = Area::where('status', 1)->get();
+
+        return view('area.good', compact('areas'));
+    }
+
+    public function statusnotgood()
+    {
+        $areas = Area::where('status', 2)->get();
+
+        return view('area.notgood', compact('areas'));
+    }
+
+    public function statusbad()
+    {
+        $areas = Area::where('status', 3)->get();
+
+        return view('area.bad', compact('areas'));
     }
 
     /**
@@ -148,9 +171,17 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
+        $houses = House::where('area_id', $id)->get();
+
+        foreach ($houses as $house) {
+            $house->area_id = Null;
+            $house->save();
+        }
+
         $area = Area::findOrFail($id);
 
         $photos = AreaPhoto::where('area_id', $id)->delete();
+
 
         $area->delete();
 

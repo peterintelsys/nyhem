@@ -16,6 +16,22 @@
 <div><a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="createarea">Lägg till område</a></div><br>
 
 
+<div class="panel">
+<div class="panel-header">
+Statistik
+</div>
+
+<div class="panel-content">
+<br>
+<div>Totalt antal områden: {{ count($areas)}}</div>
+<div><a href="/areas/good" style="text-decoration: none;">Fungerar mycket bra: {{ count($areas->where('status', 1))}}</a></div>
+<div><a href="/areas/notgood" style="text-decoration: none;">Problem finns: {{ count($areas->where('status', 2))}}</a></div>
+<div><a href="/areas/bad" style="text-decoration: none;">Fungerar dåligt: {{ count($areas->where('status', 3))}}</a></div>
+<br>
+</div>
+</div>
+
+
 <div class="column two">
 
 

@@ -23,15 +23,38 @@ class HouseController extends Controller
     {
         $streets = Street::all();
 
-        $alagrand = House::where('street_id', 1)->orderBy('number', 'asc')->get();
+        $alagrand = House::where('street_id', 1)->where('type', 'Villa')->orderBy('number', 'asc')->get();
 
-        $abborrgrand = House::where('street_id', 2)->orderBy('number', 'asc')->get();
+        $alagarage = House::where('street_id', 1)->where('type', 'Garage')->orderBy('number', 'asc')->get();
 
-        $mortgrand = House::where('street_id', 3)->orderBy('number', 'asc')->get();
+        $abborrgrand = House::where('street_id', 2)->where('type', 'Villa')->orderBy('number', 'asc')->get();
+
+        $abborrgarage = House::where('street_id', 2)->where('type', 'Garage')->orderBy('number', 'asc')->get();
+
+        $mortgrand = House::where('street_id', 3)->where('type', 'Villa')->orderBy('number', 'asc')->get();
+
+        $mortgarage = House::where('street_id', 3)->where('type', 'Garage')->orderBy('number', 'asc')->get();
 
         $noarea = House::where('area_id', Null)->get();
 
-        return view('house.index', compact('alagrand', 'abborrgrand', 'mortgrand', 'streets', 'noarea'));
+        return view('house.index', compact('alagrand', 'abborrgrand', 'mortgrand', 'streets', 'noarea', 'mortgarage'
+            ,'abborrgarage', 'alagarage'));
+    }
+
+    public function garages()
+    {
+
+        $garages = House::where('type', 'Garage')->orderBy('number', 'asc')->get();
+
+       return view('house.garages', compact('garages')); 
+    }
+
+    public function noareas()
+    {
+
+        $noareas = House::where('type', 'Villa')->where('area_id', Null)->orderBy('area_id', 'asc')->orderBy('number', 'asc')->get();
+
+       return view('house.noareas', compact('noareas')); 
     }
 
     /**

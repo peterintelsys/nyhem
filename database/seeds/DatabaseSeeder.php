@@ -64,8 +64,20 @@ class DatabaseSeeder extends Seeder
 
             $ala = New House;
             $ala->number = $alahouse;
+            $ala->type = 'Villa';
             $ala->street_id = $alastreet;
             $ala->save();
+        }
+
+        $alagarage =[14,15,16,17,18];
+
+        foreach($alagarage as $alagare){
+
+            $alagar = New House;
+            $alagar->number = $alagare;
+            $alagar->type = 'Garage';
+            $alagar->street_id = $alastreet;
+            $alagar->save();
         }
 
 
@@ -76,19 +88,44 @@ class DatabaseSeeder extends Seeder
 
             $abb = New House;
             $abb->number = $abborhouse;
+            $abb->type = 'Villa';
             $abb->street_id = $abborrstreet;
             $abb->save();
+        }
+
+        $abbgarage =[9,10,11,12,13];
+
+        foreach($abbgarage as $abbgare){
+
+            $abbgar = New House;
+            $abbgar->number = $abbgare;
+            $abbgar->type = 'Garage';
+            $abbgar->street_id = $abborrstreet;
+            $abbgar->save();
         }
 
         $morthouses = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,
                         36,37,38,39,41,42,43,44,45,46,47,48,49,50,51];
 
+
         foreach($morthouses as $morthouse){
 
             $mort = New House;
             $mort->number = $morthouse;
+            $mort->type = 'Villa';
             $mort->street_id = $mortstreet;
             $mort->save();
+        }
+
+        $mortgarage =[1,2,3,4,5,6,7,8];
+
+        foreach($mortgarage as $mortgare){
+
+            $mortgar = New House;
+            $mortgar->number = $mortgare;
+            $mortgar->type = 'Garage';
+            $mortgar->street_id = $mortstreet;
+            $mortgar->save();
         }
 
 

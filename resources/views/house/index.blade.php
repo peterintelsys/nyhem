@@ -22,8 +22,9 @@ Statistik
 
 <div class="panel-content">
 <br>
-<div>Totalt antal fastigheter: {{ count($alagrand) + count($abborrgrand) + count($mortgrand) }}</div>
-<div>Fastigheter utan ansvarsområde: {{ count($noarea) }}</div>
+<div>Totalt antal villor: {{ count($alagrand) + count($abborrgrand) + count($mortgrand) }}</div>
+<div><a href="/houses/garages" style="text-decoration: none;">Totalt antal garage: {{ count($alagarage) + count($abborrgarage) + count($mortgarage) }}</a></div>
+<div><a href="/houses/noareas" style="text-decoration: none;">Fastigheter utan ansvarsområde: {{ count($noarea) - count($alagarage) - count($abborrgarage) - count($mortgarage)}}</a></div>
 <br>
 </div>
 </div>
@@ -34,7 +35,7 @@ Statistik
 <div class="panel">
 
 <div class="panel-header" style="font-size: 18px;">
-<div>Ålagränd</div><div>Antal: {{ count($alagrand) }} villor</div>
+<div>Ålagränd</div><div>{{ count($alagrand) }} villor, {{ count($alagarage) }} garage</div>
 </div>
 
 
@@ -42,6 +43,11 @@ Statistik
 @foreach ($alagrand as $ala)
 <div class="panel-list"><a href="/houses/{{$ala->id}}">{{ $ala->street->name }} {{ $ala->number }}</a></div>
 @endforeach
+
+@foreach ($alagarage as $alagar)
+<div class="panel-list"><a href="/houses/{{$alagar->id}}" style="text-decoration: none;">G{{ $alagar->number }}</a></div>
+@endforeach
+
 </div>
 
 </div>
@@ -49,13 +55,18 @@ Statistik
 <div class="panel">
 
 <div class="panel-header" style="font-size: 18px;">
-<div>Abborrgränd</div><div>Antal: {{ count($abborrgrand) }} villor</div>
+<div>Abborrgränd</div><div>{{ count($abborrgrand) }} villor, {{ count($abborrgarage) }} garage</div>
 </div>
 
 <div class="panel-content" style="margin:12px 0 24px 0;">
 @foreach ($abborrgrand as $abborr)
 <div class="panel-list"><a href="/houses/{{$abborr->id}}" style="text-decoration: none;">{{ $abborr->street->name }} {{ $abborr->number }}</a></div>
 @endforeach
+
+@foreach ($abborrgarage as $abbgar)
+<div class="panel-list"><a href="/houses/{{$abbgar->id}}" style="text-decoration: none;">G{{ $abbgar->number }}</a></div>
+@endforeach
+
 </div>
 
 
@@ -64,13 +75,18 @@ Statistik
 
 <div class="panel">
 <div class="panel-header" style="font-size: 18px;">
-<div>Mörtgränd</div><div>Antal: {{ count($mortgrand) }} villor</div>
+<div>Mörtgränd</div><div>{{ count($mortgrand) }} villor, {{ count($mortgarage) }} garage</div>
 </div>
 
 <div class="panel-content" style="margin:12px 0;">
 @foreach ($mortgrand as $mort)
 <div class="panel-list"><a href="/houses/{{$mort->id}}" style="text-decoration: none;">{{ $mort->street->name }} {{ $mort->number }}</a></div>
 @endforeach
+
+@foreach ($mortgarage as $mortgar)
+<div class="panel-list"><a href="/houses/{{$mortgar->id}}" style="text-decoration: none;">G{{ $mortgar->number }}</a></div>
+@endforeach
+
 </div>
 
 </div>

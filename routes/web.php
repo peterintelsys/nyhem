@@ -20,8 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('streets', 'StreetController');
+Route::get('houses/garages', 'HouseController@garages');
+Route::get('houses/noareas', 'HouseController@noareas');
 Route::resource('houses', 'HouseController');
 Route::resource('streetphotos', 'StreetPhotoController');
+Route::get('areas/good', 'AreaController@statusgood');
+Route::get('areas/notgood', 'AreaController@statusnotgood');
+Route::get('areas/bad', 'AreaController@statusbad');
 Route::resource('areas', 'AreaController');
 Route::post('areaphotos', 'AreaPhotoController@store');
 
