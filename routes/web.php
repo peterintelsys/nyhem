@@ -28,6 +28,7 @@ Route::get('areas/good', 'AreaController@statusgood');
 Route::get('areas/notgood', 'AreaController@statusnotgood');
 Route::get('areas/bad', 'AreaController@statusbad');
 Route::resource('areas', 'AreaController');
+Route::get('events/newcreate/{id}', 'EventController@newcreate');
 Route::resource('events', 'EventController');
 Route::post('areaphotos', 'AreaPhotoController@store');
 

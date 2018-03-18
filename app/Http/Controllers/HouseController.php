@@ -123,8 +123,14 @@ class HouseController extends Controller
      */
     public function edit($id)
     {
+        $house = House::find($id);
+
+        $streets = Street::all();
+
+        $areas = Area::where('street_id', $house->street_id)->get();
 
 
+        return view('house.edit', compact('house', 'streets', 'areas'));
     }
 
     /**

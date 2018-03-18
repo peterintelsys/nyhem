@@ -22,13 +22,46 @@
 
 <div class="panel-content" style="padding-top: 12px;">
 
-Rubrik: {{ $event->name }}
+<div>Rubrik: {{ $event->name }}</div>
 <br>
 Start datum: {{ $event->start }}
 <br>
 Beskrivning: {{ $event->info }}
-<br><br>
+<br>
+Budgeterad kostnad: {{ $event->budget }}
+<br>
+<div>Skapad av: {{ $event->user->name }}</div>
+<br>
 <a href="" class="button">Ändra</a>
+<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="deleteevent">Ta bort</a>
+
+</div>
+
+</div>
+
+<div id="deleteevent" class="modal">
+
+<div class="modal-panel">
+
+<div class="panel-header">
+
+<div style="font-size: 24px; margin: 12px 0;">Vill du radera posten</div>
+
+<div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="deleteevent">Ångra</a></div>
+
+</div>
+
+<div class="panel-content">
+<br>
+<form method="POST" action="{{ route('events.destroy', ['id' => $event->id]) }}">
+  {{ csrf_field() }}{{ method_field('DELETE') }}
+      
+    
+  <input class="button-primary" style="background-color: red; border-color:red;" type="submit" value="Radera posten">
+</form>
+
+</div>
+
 </div>
 
 </div>

@@ -17,9 +17,25 @@
 
 <div class="panel">
 
-<div class="panel-header" style="font-size: 24px;">
+<div class="panel-header">
 
-{{ $house->street->name }} @if($house->type == 'Garage') G @endif{{ $house->number }}
+<div>{{ $house->street->name }} @if($house->type == 'Garage') G @endif{{ $house->number }}</div>
+
+<div>
+  
+<div class="dropdown">
+      <a href="javascript:void(0);" onclick="myFunction(this)" class="dropbtn trigram" data-target="housedrop">&#9776;</a>
+      <div id="housedrop" class="dropdown-content">
+
+        
+        <a href="{{ route('houses.edit', ['id' => $house->id]) }}">Ändra...</a>
+        <a href="{{ action('EventController@newcreate', ['id' => $house->id]) }}">Att göra...</a>
+        
+
+      </div>
+      </div>
+
+</div>
 
 </div>
 
@@ -34,12 +50,20 @@
  <strong>Ansvarsområde:</strong><br>
  @isset ($house->area->name)
  <div><a href="{{ route('areas.show', ['id' => $house->area->id]) }}">{{ $house->area->name }}</a></div>
- <br><br>
+ 
  @endisset
+ <br><br>
+
+ <strong>Att göra:</strong><br>
+ @foreach($house->events as $event)
+
+<div><a href="{{ route('events.show', ['id' => $event->id]) }}">{{ $event->start }} {{ $event->name }}</a></div>
+
+ @endforeach
+ <br><br>
 
 <br>
-<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="edithouse">Ändra...</a>
-<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="deletehouse">Radera post...</a>
+
 </div>
 
 
@@ -63,56 +87,6 @@
 </iframe>
 
 
-
-</div>
-
-</div>
-
-</div>
-
-<div id="edithouse" class="modal">
-
-<div class="modal-panel">
-
-<div class="panel-header">
-
-<div style="font-size: 24px; margin: 12px 0;">Ändra posten</div>
-
-<div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="edithouse">Stäng</a></div>
-
-</div>
-
-<div class="panel-content">
-
-<form method="POST" action="{{ route('houses.update', ['id' => $house->id]) }}">
-  {{ csrf_field() }}{{ method_field('PUT') }}
-
-  		<label for="exampleRecipientInput">Gatunamn</label>
-      <select class="u-full-width" id="exampleRecipientInput" name="street">
-      <option value="{{ $house->street->id }}">{{ $house->street->name }}</option>
-      @foreach ($streets as $street)
-        <option value="{{ $street->id }}">{{ $street->name }}</option>
-      @endforeach
-      </select>
-      <label for="exampleEmailInput">Fastighetsnummer</label>
-      <input class="u-full-width" type="text" placeholder="Ange fastighetsnummer" name="number" value="{{ $house->number }}">
-      <label for="exampleEmailInput">Fastighetsbetäckning</label>
-      <input class="u-full-width" type="text" placeholder="Ange fastighetsbetäckning" name="name" value="{{ $house->name }}">
-      <label for="exampleEmailInput">Kontaktinfo</label>
-      <textarea class="u-full-width" type="text" placeholder="Ange kontaktperson för gatan" name="contact">{{ $house->contact }}</textarea>
-
-      
-      <label for="exampleEmailInput">Ange ansvarsområde</label>
-      <select class="u-full-width" id="exampleRecipientInput" name="area">
-      <option value="@isset($house->area_id){{ $house->area_id }}@endisset @empty($house->area_id)0 @endempty">@isset($house->area->name){{ $house->area->name }}@endisset @empty($house->area->name) Välj område @endempty</option>
-      @foreach ($areas as $area)
-        <option value="{{ $area->id }}">{{ $area->name }}</option>
-      @endforeach
-      </select>
-    
-    
-  <input class="button-primary" type="submit" value="Spara">
-</form>
 
 </div>
 

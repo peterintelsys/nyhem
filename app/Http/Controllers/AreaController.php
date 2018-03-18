@@ -127,7 +127,10 @@ class AreaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $area = Area::findOrFail($id);
+        $streets = Street::all();
+
+        return view('area.edit', compact('area', 'streets'));
     }
 
     /**

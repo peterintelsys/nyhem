@@ -12,6 +12,12 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -27,8 +33,32 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
-        return view('event.create');
+         $newid = 'events';
+
+         $test = Null;
+
+         
+        return view('event.create', compact('test', 'newid'));
+    }
+
+    public function newcreate($id)
+    {
+         $url = url()->previous();
+
+         $newid = $id;
+
+         $test = Null;
+
+         if (str_contains($url, 'houses')){
+            $test = 'houses';
+         }elseif (str_contains($url, 'areas')) {
+             $test = 'areas';
+        }else{
+            $test = Null;
+        }
+
+
+        return view('event.create', compact('test', 'newid'));
     }
 
     /**
@@ -51,6 +81,14 @@ class EventController extends Controller
         $event->start = $request->start;
         $event->info = $request->info;
         $event->budget = $budget;
+        $event->user_id = $request->user()->id;
+
+        if($request->relation ==='houses'){
+         $event->house_id = $request->relationid;   
+        }
+        if($request->relation ==='areas'){
+         $event->area_id = $request->relationid;   
+        }
 
         $event->save();
 
@@ -102,6 +140,10 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event = Event::findOrFail($event->id);
+
+        $event->delete();
+
+        return redirect()->route('events.index');
     }
 }

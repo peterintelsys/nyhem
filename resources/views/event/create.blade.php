@@ -12,18 +12,6 @@
 
 <h4>Skapa en ny händelse</h4>
 
-<div class="panel">
-
-<div class="panel-header">
-
-<div style="font-size: 24px; margin:12px 0;"></div>
-
-<div><a href="/events">Stäng</a></div>
-
-</div>
-
-<div class="panel-content" style="padding-top: 12px;">
-
 <form method="POST" action="{{ route('events.store') }}">
   {{ csrf_field() }}
 
@@ -40,14 +28,18 @@
       
       <label for="exampleEmailInput">Budgeterad kostnad</label>
       <input type="text" placeholder="" name="budget" id="exampleEmailInput">
+
+      @isset($test)
+      <input type="hidden" name="relation" id="exampleEmailInput" value="{{ $test }}">
+      <input type="hidden" name="relationid" id="exampleEmailInput" value="{{ $newid }}">
+      @endisset
+
     <br>
     
   <input class="button-primary" type="submit" value="Spara">
 </form>
 
-</div>
 
-</div>
 
 </div>
 @endsection

@@ -12,7 +12,7 @@
 
 <h4>Att göra</h4>
 
-<a href="/events/create" class="button">Lägg till händelse...</a>
+<a href="/events/create" class="button">Lägg till händelse...</a><br><br>
 
 <div>
 

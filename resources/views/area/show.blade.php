@@ -17,17 +17,33 @@
 
 <div class="panel">
 
-<div class="panel-header" style="font-size: 24px;">
+<div class="panel-header">
 
-<div>{{ $area->name }}</div>
+<div><strong>{{ $area->name }}</strong></div>
 
-<div style="width:40px;height:20px;background-color: @if($area->status === 1)green @elseif($area->status === 2) yellow
-@elseif($area->status === 3)red @endif;"></div>
+<div>
+  
+<div class="dropdown">
+      <a href="javascript:void(0);" onclick="myFunction(this)" class="dropbtn trigram" data-target="areadrop">&#9776;</a>
+      <div id="areadrop" class="dropdown-content">
+
+        
+        <a href="{{ route('areas.edit', ['id' => $area->id]) }}">Ändra...</a>
+        <a href="{{ action('EventController@newcreate', ['id' => $area->id]) }}">Att göra...</a>
+        
+
+      </div>
+      </div>
+
+</div>
 
 </div>
 
 <div class="panel-content">
 <br>
+<div style="width:40px;height:20px;background-color: @if($area->status === 1)green @elseif($area->status === 2) yellow
+@elseif($area->status === 3)red @endif;"></div>
+
 <strong>Info (arbetsbeskrivning)</strong><br>
  {{ $area->info }}<br><br>
 
@@ -38,6 +54,13 @@
 @foreach ($area->houses as $house)
 
 <div><a href="{{ route('houses.show', ['id' => $house->id]) }}">{{ $house->street->name }} {{ $house->number }}</a></div>
+
+@endforeach
+<br><br>
+<strong>Att göra</strong><br>
+@foreach ($area->events as $event)
+
+<div><a href="{{ route('events.show', ['id' => $event->id]) }}">{{ $event->name }}</a></div>
 
 @endforeach
 <br><br>
