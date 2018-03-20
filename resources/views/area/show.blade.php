@@ -30,6 +30,7 @@
         
         <a href="{{ route('areas.edit', ['id' => $area->id]) }}">Ändra...</a>
         <a href="{{ action('EventController@newcreate', ['id' => $area->id]) }}">Att göra...</a>
+        <a href="/areas/{{ $area->id }}/ansvariga">Ansvariga...</a>
         <a href="javascript:void(0);" onclick="showModal(this)" data-target="deletearea">Ta bort...</a>
         
 

@@ -60,6 +60,34 @@ class AreaController extends Controller
         return view('area.bad', compact('areas'));
     }
 
+    public function ansvariga($id)
+    {
+        $area = Area::findOrFail($id);
+
+        $houses = House::where('street_id', $area->street_id)->where('area_id', Null)->get();
+
+        $ansvariga = House::where('area_id', $area->id)->get();
+
+        return view('area.ansvariga', compact('area', 'houses', 'ansvariga'));
+    }
+
+    public function newansvariga($areaid, $houseid)
+    {
+        $house = House::findOrFail($houseid);
+
+        $area = Area::findOrFail($areaid);
+
+        $house->area_id = $area->id;
+
+        $house->save();
+
+        
+
+        return redirect()->action('AreaController@ansvariga', ['id' => $area->id]);
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
