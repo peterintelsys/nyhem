@@ -6,7 +6,7 @@
 <ul class="breadcrumb">
 <li><a href="{{ route('home') }}">Hem</a></li>
 <li><a href="{{ route('areas.index') }}">Skötselområden</a></li>
-<li>{{ $area->name }}</li>
+<li>{{ $area->name }} {{ $area->street->name }}</li>
 </ul>
 
 <h4>Detalj info:</h4>
@@ -19,7 +19,7 @@
 
 <div class="panel-header">
 
-<div><strong>{{ $area->name }}</strong></div>
+<div><strong>{{ $area->name }} {{ $area->street->name }}</strong></div>
 
 <div>
   
@@ -30,6 +30,7 @@
         
         <a href="{{ route('areas.edit', ['id' => $area->id]) }}">Ändra...</a>
         <a href="{{ action('EventController@newcreate', ['id' => $area->id]) }}">Att göra...</a>
+        <a href="javascript:void(0);" onclick="showModal(this)" data-target="deletearea">Ta bort...</a>
         
 
       </div>
@@ -41,8 +42,10 @@
 
 <div class="panel-content">
 <br>
-<div style="width:40px;height:20px;background-color: @if($area->status === 1)green @elseif($area->status === 2) yellow
-@elseif($area->status === 3)red @endif;"></div>
+<strong>Status</strong><br>
+<div style="width:40px;height:20px;background-color: @if($area->status === 1)#588751 @elseif($area->status === 2)#FFC700
+@elseif($area->status === 3)#D41942 @endif;"></div>
+<br>
 
 <strong>Info (arbetsbeskrivning)</strong><br>
  {{ $area->info }}<br><br>
@@ -60,13 +63,12 @@
 <strong>Att göra</strong><br>
 @foreach ($area->events as $event)
 
-<div><a href="{{ route('events.show', ['id' => $event->id]) }}">{{ $event->name }}</a></div>
+<div><a href="{{ route('events.show', ['id' => $event->id]) }}">{{ $event->start }} {{ $event->name }}</a></div>
 
 @endforeach
 <br><br>
 
-<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="editarea">Ändra...</a>
-<a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="deletearea">Radera post...</a>
+
 </div>
 
 

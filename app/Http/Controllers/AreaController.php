@@ -67,7 +67,10 @@ class AreaController extends Controller
      */
     public function create()
     {
-        //
+        
+        $streets = Street::all();
+
+        return view('area.create', compact('streets'));
     }
 
     /**

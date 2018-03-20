@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\House;
+use App\Area;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -104,8 +106,10 @@ class EventController extends Controller
     public function show(Event $event)
     {
         //
+        $house = House::find($event->house_id);
+        $area = Area::find($event->area_id);
 
-        return view('event.show', compact('event'));
+        return view('event.show', compact('event', 'house', 'area'));
 
     }
 
@@ -118,6 +122,7 @@ class EventController extends Controller
     public function edit(Event $event)
     {
         //
+        return view('event.edit', compact('event'));
     }
 
     /**
@@ -129,7 +134,19 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $validatedData = $request->validate([
+        'name' => 'required|max:50',
+        ]);
+
+
+        $event->name = $request->name;
+        $event->start = $request->start;
+        $event->info = $request->info;
+        $event->budget = $request->budget;
+
+        $event->save();
+
+        return redirect()->route('events.show', ['id' => $event->id]);
     }
 
     /**

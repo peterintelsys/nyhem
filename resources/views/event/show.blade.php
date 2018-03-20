@@ -32,7 +32,13 @@ Budgeterad kostnad: {{ $event->budget }}
 <br>
 <div>Skapad av: {{ $event->user->name }}</div>
 <br>
-<a href="" class="button">Ändra</a>
+
+<div>Händelsen tillhör: @isset($house)
+Fastigheten <a href="{{ route('houses.show', ['id' => $house->id]) }}">{{ $house->street->name }} {{ $event->house->number }}</a> @endisset 
+@isset($area)Område <a href="{{ route('areas.show', ['id' => $area->id]) }}">{{ $area->name }} {{ $area->street->name }}</a> @endisset</div>
+<br>
+
+<a href="{{ route('events.edit', ['id' => $event->id]) }}" class="button">Ändra</a>
 <a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="deleteevent">Ta bort</a>
 
 </div>

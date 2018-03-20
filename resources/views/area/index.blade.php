@@ -13,7 +13,7 @@
 
 
 
-<div><a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="createarea">Lägg till område</a></div><br>
+<div><a href="{{ route('areas.create') }}" class="button">Lägg till område</a></div><br>
 
 
 <div class="panel">
@@ -43,9 +43,20 @@ Statistik
 
 
 <div class="panel-content" style="margin:12px 0;">
+<table class="u-full-width">
+  <tbody>
 @foreach ($alagrand as $ala)
-<div class="panel-list"><a href="/areas/{{$ala->id}}" style="text-decoration: none;">{{ $ala->name }}</a></div>
+
+<tr>
+<td><a href="/areas/{{$ala->id}}" style="text-decoration: none;">{{ $ala->name }} {{ $ala->street->name }}</a></td>
+<td><div style="width:40px;height:20px;background-color: @if($ala->status === 1)#588751 @elseif($ala->status === 2)#FFC700
+@elseif($ala->status === 3)#D41942 @endif;"></div></td>
+</tr>
 @endforeach
+
+</tbody>
+</table>
+
 </div>
 
 </div>
@@ -57,9 +68,19 @@ Statistik
 </div>
 
 <div class="panel-content" style="margin:12px 0 24px 0;">
+<table class="u-full-width">
+  <tbody>
 @foreach ($abborrgrand as $abborr)
-<div class="panel-list"><a href="/areas/{{$abborr->id}}" style="text-decoration: none;">{{ $abborr->name }}</a></div>
+
+<tr>
+<td><a href="/areas/{{$abborr->id}}" style="text-decoration: none;">{{ $abborr->name }} {{ $abborr->street->name }}</a></td>
+<td><div style="width:40px;height:20px;background-color: @if($abborr->status === 1)#588751 @elseif($abborr->status === 2)#FFC700
+@elseif($abborr->status === 3)#D41942 @elseif($abborr->status === 0)Status saknas @endif;"></div></td>
+</tr>
 @endforeach
+
+</tbody>
+</table>
 </div>
 
 
@@ -72,62 +93,20 @@ Statistik
 </div>
 
 <div class="panel-content" style="margin:12px 0;">
+
+<table class="u-full-width">
+  <tbody>
 @foreach ($mortgrand as $mort)
-<div class="panel-list"><a href="/areas/{{$mort->id}}" style="text-decoration: none;">{{ $mort->name }}</a></div>
+
+<tr>
+<td><a href="/areas/{{$mort->id}}" style="text-decoration: none;">{{ $mort->name }} {{ $mort->street->name }}</a></td>
+<td><div style="width:40px;height:20px;background-color: @if($mort->status === 1)#588751 @elseif($mort->status === 2)#FFC700
+@elseif($mort->status === 3)#D41942 @endif;"></div></td>
+</tr>
 @endforeach
-</div>
 
-</div>
-
-</div>
-
-<div id="createarea" class="modal">
-
-<div class="modal-panel">
-
-<div class="panel-header">
-
-<div style="font-size: 24px; margin:12px 0;">Skapa ny</div>
-
-<div><a href="javascript:void(0);" onclick="closeDrop(this)" data-target="createarea">Stäng</a></div>
-
-</div>
-
-<div class="panel-content">
-
-<form method="POST" action="{{ route('areas.store') }}">
-  {{ csrf_field() }}
-
-      <label for="exampleRecipientInput">Gatunamn</label>
-      <select class="u-full-width" id="exampleRecipientInput" name="street">
-      <option value="0">Välj gata</option>
-      @foreach ($streets as $street)
-        <option value="{{ $street->id }}">{{ $street->name }}</option>
-      @endforeach
-      </select>
-      <label for="exampleEmailInput">Namn</label>
-      <input class="u-full-width" type="text" placeholder="Ange namn på området ex. G7" name="name" id="exampleEmailInput">
-      <label for="exampleEmailInput">Plats ( LAT/LONG )</label>
-      <input class="u-full-width" type="text" placeholder="Ange longitud/latitud ex. 56.242618, 12.883010" name="location" id="exampleEmailInput">
-      <label for="exampleEmailInput">Info (arbetsbeskrivning)</label>
-      <textarea class="u-full-width" type="text" placeholder="Beskriv arbetsuppgifter för området" name="info" id="exampleEmailInput"></textarea>
-      <label for="exampleEmailInput">Svårigheter</label>
-      <textarea class="u-full-width" type="text" placeholder="Beskriv svårigheter med området" name="problems"></textarea>
-
-      <label for="exampleRecipientInput">Status</label>
-      <select class="u-full-width" id="exampleRecipientInput" name="status">
-      <option value="0">Ange status</option>
-      
-      <option value="1">Mycket bra</option>
-      <option value="2">Problem finns</option>
-      <option value="3">Dåligt</option>
-    
-      </select>
-      <br>
-    
-    
-  <input class="button-primary" type="submit" value="Spara">
-</form>
+</tbody>
+</table>
 
 </div>
 

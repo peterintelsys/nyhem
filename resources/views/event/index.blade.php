@@ -24,13 +24,28 @@
 
   <div class="panel-content">
     
-    @foreach ($events as $event)
-    <div class="panel-list"><a href="{{ action('EventController@show', ['id' => $event->id]) }}">{{ $event->name}} 
-    {{ $event->budget }}</a></div>
+  <table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Skapad</th>
+      <th>Rubrik</th>
+      <th>Startdatum</th>
+      <th>Kostnad</th>
+    </tr>
+  </thead>
+  <tbody>
 
+  @foreach ($events as $event)
+    <tr>
+      <td><a href="{{ action('EventController@show', ['id' => $event->id]) }}">{{ $event->created_at->format('Y-m-d')}}</a></td>
+      <td><a href="{{ action('EventController@show', ['id' => $event->id]) }}">{{ $event->name}}</a></td>
+      <td><a href="{{ action('EventController@show', ['id' => $event->id]) }}">{{ $event->start}}</a></td>
+      <td><a href="{{ action('EventController@show', ['id' => $event->id]) }}">{{ $event->budget}}</a></td>
+    </tr>
     @endforeach
-    <br>
-
+  </tbody>
+</table>
+<br>
   </div>
 
   </div>

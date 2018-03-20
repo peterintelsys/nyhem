@@ -49,7 +49,7 @@
 
  <strong>Ansvarsområde:</strong><br>
  @isset ($house->area->name)
- <div><a href="{{ route('areas.show', ['id' => $house->area->id]) }}">{{ $house->area->name }}</a></div>
+ <div><a href="{{ route('areas.show', ['id' => $house->area->id]) }}">{{ $house->area->name }} {{ $house->street->name }}</a></div>
  
  @endisset
  <br><br>
