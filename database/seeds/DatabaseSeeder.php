@@ -20,17 +20,32 @@ class DatabaseSeeder extends Seeder
 
         if (count($users) === 0){
 
-        	$name = 'test';
-        	$email = 'test@gmail.com';
-        	$password = Hash::make('secret');
+        	$newusers = [
+            ['name' => 'Peter', 'email' => 'sppaulsson@gmail.com'],
+            ['name' => 'Jan-Olof', 'email' => 'jan-olof.jonsson@bjarenet.com'],
+            ['name' => 'Filip', 'email' => 'filip.niltorp@gmail.com'],
+            ['name' => 'Jennie', 'email' => 'jennieljunggren79@gmail.com'],
+            ['name' => 'Lisa', 'email' => 'lisajonkman@outlook.com'],
+            ['name' => 'David', 'email' => 'david.nilsson@rsnv.se'],
+            ['name' => 'Sigge', 'email' => 'sigge.skalberg@telia.com'],
+            ['name' => 'Sune', 'email' => 'sune.ronn@telia.com']
+            ];
 
-        	$user = New User;
+            
+        	$password = Hash::make('nyhem1971');
 
-        	$user->name = $name;
-        	$user->email = $email;
-        	$user->password = $password;
+        	foreach ($newusers as $newuser) {
+            
+                $buser = New User;
 
-        	$user->save();
+                $buser->name = $newuser['name'];
+                $buser->email = $newuser['email'];
+                $buser->password = $password;
+
+                $buser->save();
+            }
+
+            
 
         }
 
