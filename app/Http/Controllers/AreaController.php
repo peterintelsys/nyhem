@@ -64,7 +64,7 @@ class AreaController extends Controller
     {
         $area = Area::findOrFail($id);
 
-        $houses = House::where('street_id', $area->street_id)->where('area_id', Null)->get();
+        $houses = House::where('street_id', $area->street_id)->where('type', 'Villa')->where('area_id', Null)->orderBy('number', 'asc')->get();
 
         $ansvariga = House::where('area_id', $area->id)->get();
 
@@ -78,6 +78,21 @@ class AreaController extends Controller
         $area = Area::findOrFail($areaid);
 
         $house->area_id = $area->id;
+
+        $house->save();
+
+        
+
+        return redirect()->action('AreaController@ansvariga', ['id' => $area->id]);
+    }
+
+    public function deleteansvariga($houseid, $areaid)
+    {
+        $house = House::findOrFail($houseid);
+
+        $area = House::findOrFail($areaid);
+
+        $house->area_id = Null;
 
         $house->save();
 

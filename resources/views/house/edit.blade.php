@@ -40,19 +40,17 @@
       </select>
       <label for="exampleEmailInput">Fastighetsnummer</label>
       <input class="u-full-width" type="text" placeholder="Ange fastighetsnummer" name="number" value="{{ $house->number }}">
+      <label for="exampleEmailInput">Garagelänga</label>
+      <input class="u-full-width" type="text" placeholder="Ange fastighetsnummer" name="garagehouse" value="{{ $house->garagehouse }}">
+
+      <label for="exampleEmailInput">Garageport</label>
+      <input class="u-full-width" type="text" placeholder="Ange fastighetsnummer" name="garagenbr" value="{{ $house->garagenbr }}">
+
       <label for="exampleEmailInput">Fastighetsbetäckning</label>
       <input class="u-full-width" type="text" placeholder="Ange fastighetsbetäckning" name="name" value="{{ $house->name }}">
       <label for="exampleEmailInput">Kontaktinfo</label>
       <textarea class="u-full-width" type="text" placeholder="Ange kontaktperson för gatan" name="contact">{{ $house->contact }}</textarea>
 
-      
-      <label for="exampleEmailInput">Ange ansvarsområde</label>
-      <select class="u-full-width" id="exampleRecipientInput" name="area">
-      <option value="@isset($house->area_id){{ $house->area_id }}@endisset @empty($house->area_id)0 @endempty">@isset($house->area->name){{ $house->area->name }}@endisset @empty($house->area->name) Välj område @endempty</option>
-      @foreach ($areas as $area)
-        <option value="{{ $area->id }}">{{ $area->name }}</option>
-      @endforeach
-      </select>
     
     
   <input class="button-primary" type="submit" value="Spara"> <a class="button" href="{{ route('houses.show', ['id' =>  $house->id]) }}">Ångra</a>

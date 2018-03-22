@@ -13,7 +13,7 @@
 
 
 
-<div><a href="javascript:void(0);" onclick="showModal(this)" class="button" data-target="createhouse">Lägg till fastighet</a></div><br>
+<br>
 
 <div class="panel">
 <div class="panel-header">

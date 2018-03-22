@@ -19,6 +19,8 @@ class CreateHousesTable extends Migration
             $table->integer('number');
             $table->string('name')->nullable();
             $table->string('type')->nullable();
+            $table->integer('garagehouse')->nullable();
+            $table->integer('garagenbr')->nullable();
             $table->longText('contact')->nullable();
             $table->integer('street_id')->nullable();
             $table->integer('area_id')->nullable();

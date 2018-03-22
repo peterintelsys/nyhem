@@ -21,6 +21,7 @@ Route::get('areas/notgood', 'AreaController@statusnotgood');
 Route::get('areas/bad', 'AreaController@statusbad');
 Route::get('areas/{areaid}/ansvariga', 'AreaController@ansvariga');
 Route::get('areas/{areaid}/newansvariga/{houseid}', 'AreaController@newansvariga');
+Route::get('areas/deleteansvariga/{houseid}/{areaid}', 'AreaController@deleteansvariga');
 Route::resource('areas', 'AreaController');
 
 Route::get('events/newcreate/{id}', 'EventController@newcreate');

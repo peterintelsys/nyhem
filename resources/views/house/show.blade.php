@@ -44,6 +44,9 @@
 <strong>Fastighetsbetäckning:</strong><br>
  {{ $house->name }}<br><br>
 
+ <strong>Garage:</strong><br>
+ Garage: {{ $house->garagehouse }} - Port nr: {{ $house->garagenbr }}<br><br>
+
  <strong>Kontaktinfo:</strong><br>
  {{ $house->contact }}<br><br>
 

@@ -146,8 +146,6 @@ class HouseController extends Controller
         'street' => 'required|max:50',
         'number' => 'required|max:50',
         'name' => 'max:50',
-        'contact' => 'max:50',
-        'area' => 'max:50',
         ]);
 
         $house = House::find($id);
@@ -155,8 +153,9 @@ class HouseController extends Controller
         $house->number = $request->number;
         $house->name = $request->name;
         $house->contact = $request->contact;
+        $house->garagehouse = $request->garagehouse;
+        $house->garagenbr = $request->garagenbr;
         $house->street_id = $request->street;
-        $house->area_id = $request->area;
 
         $house->save();
 

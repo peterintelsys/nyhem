@@ -50,7 +50,8 @@
     @foreach($ansvariga as $ansvarig)
 
     <tr>
-      <td><a href="">{{ $ansvarig->street->name }} {{ $ansvarig->number }}</a></td>
+      <td><a href="{{ route('houses.show', ['id' => $ansvarig->id]) }}">{{ $ansvarig->street->name }} {{ $ansvarig->number }}</a></td>
+      <td><a href="/areas/deleteansvariga/{{ $ansvarig->id }}/{{ $area->id }}">Ta bort</a></td>
     </tr>
 
     @endforeach
