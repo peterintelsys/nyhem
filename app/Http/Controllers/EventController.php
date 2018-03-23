@@ -23,9 +23,11 @@ class EventController extends Controller
     public function index()
     {
         //
-        $events = Event::all();
+        $events = Event::where('status', null)->orderBy('start', 'asc')->get();
 
-        return view('event.index', compact('events'));
+        $eventsdone = Event::where('status', 1)->orderBy('start', 'asc')->get();
+
+        return view('event.index', compact('events', 'eventsdone'));
     }
 
     /**
@@ -147,6 +149,26 @@ class EventController extends Controller
         $event->save();
 
         return redirect()->route('events.show', ['id' => $event->id]);
+    }
+
+    public function statusdone(Event $event)
+    {
+        $event->status = 1;
+
+        $event->save();
+
+
+        return redirect()->route('events.index');
+    }
+
+    public function statusnull(Event $event)
+    {
+        $event->status = Null;
+
+        $event->save();
+
+
+        return redirect()->route('events.index');
     }
 
     /**

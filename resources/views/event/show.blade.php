@@ -32,6 +32,8 @@ Budgeterad kostnad: {{ $event->budget }}
 <br>
 <div>Skapad av: {{ $event->user->name }}</div>
 <br>
+<div>Status: @if($event->status === Null)Pågående <a href="{{ action('EventController@statusdone', ['id' => $event->id]) }}">Markera som klart</a>@else Klart <a href="{{ action('EventController@statusnull', ['id' => $event->id]) }}">Markera som pågående</a>@endif</div>
+<br>
 
 <div>Händelsen tillhör: @isset($house)
 Fastigheten <a href="{{ route('houses.show', ['id' => $house->id]) }}">{{ $house->street->name }} {{ $event->house->number }}</a> @endisset 

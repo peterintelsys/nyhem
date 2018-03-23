@@ -24,6 +24,9 @@ Route::get('areas/{areaid}/newansvariga/{houseid}', 'AreaController@newansvariga
 Route::get('areas/deleteansvariga/{houseid}/{areaid}', 'AreaController@deleteansvariga');
 Route::resource('areas', 'AreaController');
 
+
+Route::get('events/ok/{event}', 'EventController@statusnull');
+Route::get('events/done/{event}', 'EventController@statusdone');
 Route::get('events/newcreate/{id}', 'EventController@newcreate');
 Route::resource('events', 'EventController');
 Route::post('areaphotos', 'AreaPhotoController@store');
